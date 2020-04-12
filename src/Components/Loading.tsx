@@ -1,10 +1,10 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
-import Styled from 'styled-components/native';
+import styled from 'styled-components/native';
 
-const Container = Styled.View`
+const Container = styled.View`
   flex: 1;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   align-items: center;
   justify-content: center;
 `;

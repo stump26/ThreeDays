@@ -1,19 +1,19 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
+interface Props {
+  children: JSX.Element | Array<JSX.Element>;
+}
+
 const defaultContext: IUserContext = {
-  isLoading: true,
+  isLoading: false,
   userInfo: undefined,
-  login: (email: string, password: string) => {},
+  loginMethod: (action: LoginActions) => {},
   getUserInfo: () => {},
   logout: () => {},
 };
 
 const UserContext = createContext(defaultContext);
-
-interface Props {
-  children: JSX.Element | Array<JSX.Element>;
-}
 
 const UserContextProvider = ({ children }: Props) => {
   const [userInfo, setUserInfo] = useState<IUserInfo | undefined>(undefined);
@@ -28,11 +28,29 @@ const UserContextProvider = ({ children }: Props) => {
 
     AsyncStorage.setItem('token', token).then(() => {
       setUserInfo({
-        name: '',
-        email: '',
+        name: 'test',
+        email: 'test@test.com',
       });
       setIsLoading(true);
     });
+
+    console.log('UserContextProvider -> userInfo', userInfo);
+  };
+
+  const loginMethod = (action: LoginActions) => {
+    switch (action.type) {
+      case 'LOCAL':
+        login('test@test.com', 'qwer1234');
+        break;
+      case 'GOOGLE':
+        break;
+      case 'FACEBOOK':
+        break;
+      case 'KAKAO':
+        break;
+      default:
+        throw new Error();
+    }
   };
 
   const getUserInfo = (): void => {
@@ -40,8 +58,8 @@ const UserContextProvider = ({ children }: Props) => {
       .then((value) => {
         if (value) {
           setUserInfo({
-            name: '',
-            email: '',
+            name: 'test@test.com',
+            email: 'qwer1234',
           });
         }
         setIsLoading(true);
@@ -66,7 +84,7 @@ const UserContextProvider = ({ children }: Props) => {
       value={{
         isLoading,
         userInfo,
-        login,
+        loginMethod,
         getUserInfo,
         logout,
       }}

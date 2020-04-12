@@ -1,17 +1,16 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import Styled from "styled-components/native";
-import Navigator from "~/Screens/Navigator";
-
-const Container = Styled.View`
-  flex:1;
-`;
+import React from 'react';
+import { StatusBar } from 'react-native';
+import styled from 'styled-components/native';
+import Navigator from '~/Screens/Navigator';
+import { UserContextProvider } from '~/Context/User';
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" />
-      <Navigator />
+      <UserContextProvider>
+        <StatusBar barStyle="light-content" />
+        <Navigator />
+      </UserContextProvider>
     </>
   );
 };
