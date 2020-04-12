@@ -8,7 +8,8 @@ interface Props {
 const defaultContext: IUserContext = {
   isLoading: false,
   userInfo: undefined,
-  loginMethod: (action: LoginActions) => {},
+  signInMethod: (action: LoginActions) => {},
+  signUpMethod: (action: LoginActions) => {},
   getUserInfo: () => {},
   logout: () => {},
 };
@@ -37,7 +38,22 @@ const UserContextProvider = ({ children }: Props) => {
     console.log('UserContextProvider -> userInfo', userInfo);
   };
 
-  const loginMethod = (action: LoginActions) => {
+  const signInMethod = (action: LoginActions) => {
+    switch (action.type) {
+      case 'LOCAL':
+        login('test@test.com', 'qwer1234');
+        break;
+      case 'GOOGLE':
+        break;
+      case 'FACEBOOK':
+        break;
+      case 'KAKAO':
+        break;
+      default:
+        throw new Error();
+    }
+  };
+  const signUpMethod = (action: LoginActions) => {
     switch (action.type) {
       case 'LOCAL':
         login('test@test.com', 'qwer1234');
@@ -84,7 +100,8 @@ const UserContextProvider = ({ children }: Props) => {
       value={{
         isLoading,
         userInfo,
-        loginMethod,
+        signInMethod,
+        signUpMethod,
         getUserInfo,
         logout,
       }}

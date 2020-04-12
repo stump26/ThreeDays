@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, BackHandler, ToastAndroid } from 'react-native';
 
 import Button from '~/Components/Button';
 import { UserContext } from '~/Context/User';
+
+type PageTypes = 'login' | 'signup';
+interface Props {
+  curPage?: PageTypes;
+  handlePage: (page: PageTypes) => void;
+}
 
 const Cotainer = styled.View`
   display: flex;
@@ -37,20 +43,20 @@ const KakaoLogin = styled(CustomButton)`
   background: #ffe812;
 `;
 
-const LoginBtns = () => {
-  const { loginMethod } = useContext<IUserContext>(UserContext);
+const SignInBtnGroup = ({ handlePage }: Props) => {
+  const { signInMethod } = useContext<IUserContext>(UserContext);
   return (
-    <Cotainer>
+    <>
       <LocalLogin
         onPress={() => {
-          loginMethod({ type: 'LOCAL' });
+          signInMethod({ type: 'LOCAL' });
         }}
       >
         <Text style={{ color: '#FFF' }}>Email</Text>
       </LocalLogin>
       <GoogleLogin
         onPress={() => {
-          loginMethod({ type: 'GOOGLE' });
+          signInMethod({ type: 'GOOGLE' });
         }}
       >
         <Text>
@@ -64,21 +70,106 @@ const LoginBtns = () => {
       </GoogleLogin>
       <FacebookLogin
         onPress={() => {
-          loginMethod({ type: 'FACEBOOK' });
+          signInMethod({ type: 'FACEBOOK' });
         }}
       >
         <Text style={{ color: '#FFF' }}>facebook</Text>
       </FacebookLogin>
       <KakaoLogin
         onPress={() => {
-          loginMethod({ type: 'KAKAO' });
+          signInMethod({ type: 'KAKAO' });
         }}
       >
         <Text style={{ color: '#000' }}>Kakao</Text>
       </KakaoLogin>
-      <TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          handlePage('signup');
+        }}
+      >
         <Text style={{ color: '#ACACAC' }}>회원이 아니신가요? 회원가입</Text>
       </TouchableOpacity>
+    </>
+  );
+};
+
+const SignUpBtnGroup = () => {
+  const { signUpMethod } = useContext<IUserContext>(UserContext);
+  return (
+    <>
+      <LocalLogin
+        onPress={() => {
+          signUpMethod({ type: 'LOCAL' });
+        }}
+      >
+        <Text style={{ color: '#FFF' }}>Email</Text>
+      </LocalLogin>
+      <GoogleLogin
+        onPress={() => {
+          signUpMethod({ type: 'GOOGLE' });
+        }}
+      >
+        <Text>
+          <Text style={{ color: '#4285F4' }}>G</Text>
+          <Text style={{ color: '#EA4335' }}>o</Text>
+          <Text style={{ color: '#FBBC05' }}>o</Text>
+          <Text style={{ color: '#4285F4' }}>g</Text>
+          <Text style={{ color: '#34A853' }}>l</Text>
+          <Text style={{ color: '#EA4335' }}>e</Text>
+        </Text>
+      </GoogleLogin>
+      <FacebookLogin
+        onPress={() => {
+          signUpMethod({ type: 'FACEBOOK' });
+        }}
+      >
+        <Text style={{ color: '#FFF' }}>facebook</Text>
+      </FacebookLogin>
+      <KakaoLogin
+        onPress={() => {
+          signUpMethod({ type: 'KAKAO' });
+        }}
+      >
+        <Text style={{ color: '#000' }}>Kakao</Text>
+      </KakaoLogin>
+    </>
+  );
+};
+
+const LoginBtns = ({ curPage, handlePage }: Props) => {
+  const [backTimer, setBackTimer] = useState(false);
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction);
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+    };
+  }, [curPage]);
+
+  let timerID = 0;
+  const backAction = () => {
+    if (curPage === 'login') {
+      if (backTimer === false && timerID === 0) {
+        ToastAndroid.show('한번 더 누르시면 종료됩니다.', ToastAndroid.SHORT);
+        setBackTimer(true);
+        timerID = setTimeout(() => {
+          setBackTimer(false);
+          timerID = 0;
+        }, 300);
+      } else {
+        clearTimeout(timerID);
+        BackHandler.exitApp(); // 앱 종료
+      }
+    }
+    if (curPage === 'signup') {
+      handlePage('login');
+    }
+    return true;
+  };
+  return (
+    <Cotainer>
+      {curPage === 'login' ? <SignInBtnGroup handlePage={handlePage} /> : <SignUpBtnGroup />}
     </Cotainer>
   );
 };

@@ -1,12 +1,18 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useContext } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const Login = () => {
+import { UserContext } from '~/Context/User';
+
+const Home = () => {
+  const { logout } = useContext<IUserContext>(UserContext);
   return (
     <View>
       <Text>Home</Text>
+      <TouchableOpacity onPress={logout}>
+        <Text>logout</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default Login;
+export default Home;

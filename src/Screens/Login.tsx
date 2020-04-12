@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
 import { ImgBackground, LoginBtns } from '~/Components';
+
+type PageTypes = 'login' | 'signup';
 
 const SafeContainer = styled.SafeAreaView`
   flex: 1;
@@ -26,12 +28,13 @@ const LoginTitle = styled.Text`
 `;
 
 const Login = () => {
+  const [page, setPage] = useState<PageTypes>('login');
   return (
     <SafeContainer>
       <ImgBackground src={require('~/assets/images/login_bg.jpg')}>
         <Container>
           <LoginTitle>Hello. Welcome to ThreeDays.</LoginTitle>
-          <LoginBtns />
+          <LoginBtns curPage={page} handlePage={setPage} />
         </Container>
       </ImgBackground>
     </SafeContainer>

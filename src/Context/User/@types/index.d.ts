@@ -6,7 +6,8 @@ interface IUserInfo {
 interface IUserContext {
   isLoading: boolean;
   userInfo: IUserInfo | undefined;
-  loginMethod: (action: LoginActions) => void;
+  signInMethod: (action: LoginActions) => void;
+  signUpMethod: (action: LoginActions) => void;
   getUserInfo: () => void;
   logout: () => void;
 }

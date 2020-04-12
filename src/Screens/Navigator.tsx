@@ -30,15 +30,12 @@ export default () => {
   console.log('userInfo', userInfo);
   console.log('isLoading', isLoading);
 
+  if (isLoading === false) {
+    return <Loading />;
+  }
   return (
     <SafeAreaProvider>
-      {isLoading === false ? (
-        <Loading />
-      ) : (
-        <NavigationContainer>
-          {userInfo ? <HomeNavigator /> : <LoginNavigator />}
-        </NavigationContainer>
-      )}
+      <NavigationContainer>{userInfo ? <HomeNavigator /> : <LoginNavigator />}</NavigationContainer>
     </SafeAreaProvider>
   );
 };
