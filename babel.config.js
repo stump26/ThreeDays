@@ -1,19 +1,23 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo'],
+    presets: ['babel-preset-expo', 'module:metro-react-native-babel-preset'],
     plugins: [
       [
-        'babel-plugin-inline-import',
         'babel-plugin-root-import',
         {
-          extensions: ['.svg'],
           paths: [
             {
               rootPathSuffix: './src',
               rootPathPrefix: '~/',
             },
           ],
+        },
+      ],
+      [
+        'babel-plugin-inline-import',
+        {
+          extensions: ['.svg'],
         },
       ],
     ],
