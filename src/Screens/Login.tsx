@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styled from 'styled-components/native';
 
 import { ImgBackground, LoginBtns } from '~/Components';
 
 type PageTypes = 'login' | 'signup';
+type NavigationProp = StackNavigationProp<LoginNaviParamList, 'Login'>;
+interface Props {
+  navigation: NavigationProp;
+}
 
 const SafeContainer = styled.SafeAreaView`
   flex: 1;
@@ -27,7 +31,7 @@ const LoginTitle = styled.Text`
   color: #ffffff;
 `;
 
-const Login = () => {
+const Login = ({ navigation }: Props) => {
   const [page, setPage] = useState<PageTypes>('login');
   return (
     <SafeContainer>

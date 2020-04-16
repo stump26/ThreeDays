@@ -11,7 +11,7 @@ const GoalContainer = styled.View`
 
 const H3 = styled.Text`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
 
   color: #000000;
@@ -44,6 +44,7 @@ const GoalList = () => {
 
 const GoalBox = () => {
   const [goalList, setGolaList] = useState([]);
+
   return (
     <GoalContainer>
       <H3>목표</H3>

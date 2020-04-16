@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { SvgXml } from 'react-native-svg';
+import { GestureResponderEvent } from 'react-native';
 
 import PlusIc from '~/assets/images/plusicon.svg';
 
 interface Props {
   readonly size: { width: number; height: number };
   readonly pos?: { top?: number; bottom?: number; right?: number; left?: number };
+  handlePopupMenu?: (event: GestureResponderEvent) => void;
 }
 type ButtonSytlesTyps = {
   width: string;
@@ -46,16 +48,14 @@ const ButtonContainer = styled.TouchableOpacity<Props>`
         style.left = `${pos.left}px`;
       }
     }
-
-    console.log('style', style);
     return style;
   }}
 `;
 
-const FloatPlusButton = ({ size, pos }: Props) => {
+const FloatPlusButton = ({ size, pos, handlePopupMenu }: Props) => {
   return (
-    <ButtonContainer size={size} pos={pos}>
-      <SvgXml xml={PlusIc} width="15" height="15" />
+    <ButtonContainer size={size} pos={pos} onPress={handlePopupMenu}>
+      <SvgXml xml={PlusIc} width="20" height="20" />
     </ButtonContainer>
   );
 };

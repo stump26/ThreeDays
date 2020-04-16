@@ -1,8 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import { SvgXml } from 'react-native-svg';
 
 import PlusIc from '~/assets/images/plusicon.svg';
+import IcCheckboxOn from '~/assets/images/Checkbox_on.svg';
+import IcCheckboxOff from '~/assets/images/Checkbox_off.svg';
+import { TodoContext } from '~/Context/Todo';
 
 const TodoContainer = styled.View`
   margin: 0 28px;
@@ -11,13 +15,11 @@ const TodoContainer = styled.View`
 
 const H3 = styled.Text`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
 
   color: #000000;
 `;
-
-const TodoCard = styled.View``;
 
 const EmptyListContainer = styled.TouchableOpacity`
   flex: 1;
@@ -29,6 +31,22 @@ const EmptyListContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
+const CardView = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 83px;
+  margin: 6px 0;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  elevation: 5;
+`;
+const CheckBoxField = styled.View`
+  display: flex;
+  align-items: center;
+  flex-basis: 17%;
+`;
+
 const EmptyTodo = () => {
   return (
     <EmptyListContainer>
@@ -38,16 +56,47 @@ const EmptyTodo = () => {
   );
 };
 
-const TodoList = () => {
-  return <TodoCard />;
+const ChkBox = ({ value }: { value: boolean }) => {
+  return (
+    <CheckBoxField>
+      {value ? <SvgXml xml={IcCheckboxOn} /> : <SvgXml xml={IcCheckboxOff} />}
+    </CheckBoxField>
+  );
+};
+
+const TodoCard = ({ item }: { item: ITodoInfo }) => {
+  return (
+    <CardView>
+      <ChkBox value={item.SJCK} />
+      <H3>{item.JName}</H3>
+    </CardView>
+  );
+};
+
+const TodoListView = ({ list }: { list: Array<ITodoInfo> }) => {
+  return (
+    <>
+      {list?.map((todoItem) => (
+        <TodoCard key={todoItem.JID} item={todoItem} />
+      ))}
+    </>
+  );
 };
 
 const TodoBox = () => {
-  const [TodoList, setTodoList] = useState([]);
+  const { todoLists, getTodoInfo } = useContext<ITodoContext>(TodoContext);
+  console.log('TodoBox -> todoLists', todoLists);
+  useEffect(() => {
+    getTodoInfo();
+  }, []);
   return (
     <TodoContainer>
       <H3>Todo</H3>
-      {TodoList.length === 0 ? <EmptyTodo /> : <TodoList />}
+      {todoLists === undefined || todoLists?.length === 0 ? (
+        <EmptyTodo />
+      ) : (
+        <TodoListView list={todoLists} />
+      )}
     </TodoContainer>
   );
 };
