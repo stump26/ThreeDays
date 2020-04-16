@@ -4,8 +4,11 @@ import { TouchableOpacity, Text } from 'react-native';
 
 import { UserContext } from '~/Context/User';
 import { GoalBox, TodoBox } from '~/Components';
+import { FloatPlusButton } from '~/Components/Button';
 
 const Container = styled.View`
+  flex-direction: column;
+  flex: 1;
   background: #f7f7f7;
 `;
 const H3 = styled.Text`
@@ -39,9 +42,12 @@ const DetailDate = styled.Text`
   color: #000;
 `;
 
-const TodoContainer = styled.View`
-  margin: 5px 28px;
+const AddButton = styled(FloatPlusButton)`
+  position: absolute;
+  bottom:0
+  align-self: flex-end;
 `;
+
 const Home = () => {
   const { logout } = useContext<IUserContext>(UserContext);
   return (
@@ -57,9 +63,10 @@ const Home = () => {
 
       <TodoBox />
 
-      <TouchableOpacity onPress={logout}>
+      <AddButton size={{ width: 40, height: 40 }} pos={{ right: 15, bottom: 15 }} />
+      {/* <TouchableOpacity onPress={logout}>
         <Text>logout</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </Container>
   );
 };

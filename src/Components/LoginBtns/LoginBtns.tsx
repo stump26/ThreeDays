@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { Text, TouchableOpacity, BackHandler, ToastAndroid } from 'react-native';
 
-import Button from '~/Components/Button';
+import {Button} from '~/Components/Button';
 import { UserContext } from '~/Context/User';
 
 type PageTypes = 'login' | 'signup';
