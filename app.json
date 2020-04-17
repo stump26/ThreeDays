@@ -2,7 +2,7 @@
   "expo": {
     "name": "ThreeDays",
     "slug": "ThreeDays",
-    "platforms": ["ios", "android", "web"],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +22,11 @@
     "android": {
       "package": "threedays"
     },
-    "entryPoint": "~/AppEntry.js"
+    "packagerOpts": {
+      "config": "./metro.config.js",
+      "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
+    },
+    "entryPoint": "~/AppEntry.js",
+    "githubUrl": "https://github.com/stump26/ThreeDays"
   }
 }
