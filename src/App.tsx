@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import styled from 'styled-components/native';
 import Navigator from '~/Screens/Navigator';
 import { UserContextProvider } from '~/Context/User';
 

@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 interface Props {
   name: keyof AppNaviParamList;
   handleOnPressOption: (target: keyof AppNaviParamList) => void;
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
 }
 
 const Container = styled.TouchableOpacity`

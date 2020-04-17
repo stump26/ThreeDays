@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
+import { Text } from 'react-native';
 
 import { IC_CHKBOX_OFF, IC_CHKBOX_ON, IC_PLUS } from '~/Utils/svg';
 import { TodoContext } from '~/Context/Todo';
 
 const TodoContainer = styled.View`
-  margin: 0 28px;
-  height: 300px;
+  margin: 10px 28px 40px;
 `;
 
 const H3 = styled.Text`
@@ -36,13 +35,19 @@ const CardView = styled.View`
   margin: 6px 0;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
   elevation: 5;
 `;
+
 const CheckBoxField = styled.View`
-  display: flex;
   align-items: center;
-  flex-basis: 17%;
+  flex-basis: 20%;
 `;
+const ChkBoxContainer = styled.TouchableWithoutFeedback`
+  border-radius: 8px;
+`;
+
+const CardDescField = styled.View``;
 
 const EmptyTodo = () => {
   return (
@@ -53,25 +58,57 @@ const EmptyTodo = () => {
   );
 };
 
-const ChkBox = ({ value }: { value: boolean }) => {
+const ChkBox = ({
+  id,
+  value,
+  handleChecker,
+}: {
+  id: number;
+  value: boolean;
+  handleChecker: (id: number) => void;
+}) => {
   return (
     <CheckBoxField>
-      {value ? <IC_CHKBOX_ON /> : <IC_CHKBOX_OFF />}
+      <ChkBoxContainer
+        onPress={() => {
+          handleChecker(id);
+        }}
+      >
+        {value ? (
+          <IC_CHKBOX_ON width={30} height={30} />
+        ) : (
+          <IC_CHKBOX_OFF width={30} height={30} />
+        )}
+      </ChkBoxContainer>
     </CheckBoxField>
   );
 };
 
 const TodoCard = ({ item }: { item: ITodoInfo }) => {
+  const { dispatchTodo } = useContext(TodoContext);
+  const handleChecker = (JID: number) => {
+    dispatchTodo && dispatchTodo({ type: 'TOGGLE_CHK', JID: JID });
+  };
+  const dataToString = (IDate: Date) => {};
+
   return (
     <CardView>
-      <ChkBox value={item.SJCK} />
-      <H3>{item.JName}</H3>
+      <ChkBox id={item.JID} value={item.SJCK} handleChecker={handleChecker} />
+      <CardDescField>
+        <H3>{item.JName}</H3>
+        <Text>{item.expireDate?.toISOString()}</Text>
+      </CardDescField>
     </CardView>
   );
 };
 
 const TodoListView = ({ list }: { list: Array<ITodoInfo> }) => {
   return (
+    // <FlatList
+    //   keyExtractor={(item) => item.JID.toString()}
+    //   data={list}
+    //   renderItem={({ item }) => <TodoCard key={item.JID} item={item} />}
+    // />
     <>
       {list?.map((todoItem) => (
         <TodoCard key={todoItem.JID} item={todoItem} />
@@ -81,11 +118,8 @@ const TodoListView = ({ list }: { list: Array<ITodoInfo> }) => {
 };
 
 const TodoBox = () => {
-  const { todoLists, getTodoInfo } = useContext<ITodoContext>(TodoContext);
-  console.log('TodoBox -> todoLists', todoLists);
-  useEffect(() => {
-    getTodoInfo();
-  }, []);
+  const { todoLists } = useContext<ITodoContext>(TodoContext);
+
   return (
     <TodoContainer>
       <H3>Todo</H3>

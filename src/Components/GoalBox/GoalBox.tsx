@@ -5,7 +5,7 @@ import { IC_PLUS } from '~/Utils/svg';
 
 const GoalContainer = styled.View`
   margin: 0 28px;
-  height: 230px;
+  min-height: 230px;
 `;
 
 const H3 = styled.Text`

@@ -9,5 +9,9 @@ interface ITodoInfo {
 interface ITodoContext {
   isLoading: boolean;
   todoLists: Array<ITodoInfo> | undefined;
-  getTodoInfo: () => void;
+  dispatchTodo: React.Dispatch<ActionTypes> | undefined;
 }
+
+type ActionTypes =
+  | { type: 'TOGGLE_CHK'; JID: number }
+  | { type: 'SET_LIST'; value: Array<ITodoInfo> | ITodoInfo };

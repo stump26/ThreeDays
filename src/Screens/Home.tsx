@@ -1,5 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { GestureResponderEvent, Dimensions } from 'react-native';
+import {
+  GestureResponderEvent,
+  Dimensions,
+  ScrollView,
+  View,
+} from 'react-native';
 import styled from 'styled-components/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
@@ -18,6 +23,7 @@ const Container = styled.View`
   flex-direction: column;
   flex: 1;
   background: #f7f7f7;
+  overflow: scroll;
 `;
 const H3 = styled.Text`
   font-weight: bold;
@@ -49,6 +55,7 @@ const DetailDate = styled.Text`
   text-align: center;
   color: #000;
 `;
+const ScrollableList = styled.ScrollView``;
 
 const AddButton = styled(FloatPlusButton)`
   position: absolute;
@@ -87,11 +94,13 @@ const Home = ({ navigation }: Props) => {
         </DayIndecator>
       </Header>
 
-      <GoalBox />
+      <ScrollableList>
+        <GoalBox />
 
-      <TodoContextProvider>
-        <TodoBox />
-      </TodoContextProvider>
+        <TodoContextProvider>
+          <TodoBox />
+        </TodoContextProvider>
+      </ScrollableList>
 
       <AddButton
         size={{ width: 60, height: 60 }}
@@ -99,11 +108,21 @@ const Home = ({ navigation }: Props) => {
         handlePopupMenu={showPopupMenu}
       />
       {popupVisible && (
-        <PopUpMenu isVisible={popupVisible} coord={popupCoord} handlePopupMenu={hidePopupMenu}>
-          <PopUpOption handleOnPressOption={handleOnPressOption} name="writeGoal">
+        <PopUpMenu
+          isVisible={popupVisible}
+          coord={popupCoord}
+          handlePopupMenu={hidePopupMenu}
+        >
+          <PopUpOption
+            handleOnPressOption={handleOnPressOption}
+            name="writeGoal"
+          >
             목표 생성
           </PopUpOption>
-          <PopUpOption handleOnPressOption={handleOnPressOption} name="writeTodo">
+          <PopUpOption
+            handleOnPressOption={handleOnPressOption}
+            name="writeTodo"
+          >
             작업 추가
           </PopUpOption>
         </PopUpMenu>
