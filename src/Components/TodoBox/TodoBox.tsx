@@ -1,11 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
-import { SvgXml } from 'react-native-svg';
 
-import PlusIc from '~/assets/images/plusicon.svg';
-import IcCheckboxOn from '~/assets/images/Checkbox_on.svg';
-import IcCheckboxOff from '~/assets/images/Checkbox_off.svg';
+import { IC_CHKBOX_OFF, IC_CHKBOX_ON, IC_PLUS } from '~/Utils/svg';
 import { TodoContext } from '~/Context/Todo';
 
 const TodoContainer = styled.View`
@@ -51,7 +48,7 @@ const EmptyTodo = () => {
   return (
     <EmptyListContainer>
       <H3>할일이 비어있어요{'\n'}작업을 추가해봐요</H3>
-      <SvgXml xml={PlusIc} />
+      <IC_PLUS />
     </EmptyListContainer>
   );
 };
@@ -59,7 +56,7 @@ const EmptyTodo = () => {
 const ChkBox = ({ value }: { value: boolean }) => {
   return (
     <CheckBoxField>
-      {value ? <SvgXml xml={IcCheckboxOn} /> : <SvgXml xml={IcCheckboxOff} />}
+      {value ? <IC_CHKBOX_ON /> : <IC_CHKBOX_OFF />}
     </CheckBoxField>
   );
 };

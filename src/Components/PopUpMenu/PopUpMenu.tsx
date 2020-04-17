@@ -1,8 +1,7 @@
 import React from 'react';
-import { SvgXml, XmlProps } from 'react-native-svg';
 import { Dimensions, Text } from 'react-native';
 
-import PopUpBubble from '~/assets/images/PopUpBubble.svg';
+import { POPUP_BUBBLE } from '~/Utils/svg';
 import styled from 'styled-components/native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -48,7 +47,7 @@ const Container = styled.View<StyleProps>`
   justify-content:space-around;
 `;
 
-const PopUpBubbleContainer = styled(SvgXml).attrs({ xml: PopUpBubble })`
+const PopUpBubbleContainer = styled(POPUP_BUBBLE)`
   position: absolute;
 `;
 

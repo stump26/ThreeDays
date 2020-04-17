@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components/native';
-import { SvgXml } from 'react-native-svg';
 
-import PlusIc from '~/assets/images/plusicon.svg';
+import { IC_PLUS } from '~/Utils/svg';
 
 const GoalContainer = styled.View`
   margin: 0 28px;
@@ -33,7 +32,7 @@ const EmptyGoal = () => {
   return (
     <EmptyListContainer>
       <H3>목표가 비어있어요{'\n'}목표를 추가해봐요</H3>
-      <SvgXml xml={PlusIc} />
+      <IC_PLUS />
     </EmptyListContainer>
   );
 };
