@@ -86,8 +86,7 @@ const Home = ({ navigation }: Props) => {
   };
 
   const handleOnPressOption = (target: keyof AppNaviParamList) => {
-    console.log('handleOnPressOption -> target', target);
-    // navigation.navigate(target);
+    navigation.navigate(target);
   };
 
   return (
