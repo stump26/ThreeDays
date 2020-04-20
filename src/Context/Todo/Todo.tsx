@@ -52,7 +52,7 @@ const TodoContext = createContext(defaultContext);
 
 const todoReducer = (
   state: Array<ITodoInfo> | undefined,
-  action: ActionTypes,
+  action: TodoActionTypes,
 ) => {
   switch (action.type) {
     case 'TOGGLE_CHK':

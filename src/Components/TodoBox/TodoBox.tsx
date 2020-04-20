@@ -2,7 +2,9 @@ import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components/native';
 import { Text } from 'react-native';
 
-import { IC_CHKBOX_OFF, IC_CHKBOX_ON, IC_PLUS } from '~/Utils/svg';
+import CardView from '~/Components/CardView';
+import CheckBox from '~/Components/CheckBox';
+import { IC_PLUS } from '~/Utils/svg';
 import { TodoContext } from '~/Context/Todo';
 
 const TodoContainer = styled.View`
@@ -27,24 +29,8 @@ const EmptyListContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const CardView = styled.View`
-  display: flex;
+const CardContainer = styled(CardView)`
   flex-direction: row;
-  align-items: center;
-  height: 83px;
-  margin: 6px 0;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
-  elevation: 5;
-`;
-
-const CheckBoxField = styled.View`
-  align-items: center;
-  flex-basis: 20%;
-`;
-const ChkBoxContainer = styled.TouchableWithoutFeedback`
-  border-radius: 8px;
 `;
 
 const CardDescField = styled.View``;
@@ -58,32 +44,6 @@ const EmptyTodo = () => {
   );
 };
 
-const ChkBox = ({
-  id,
-  value,
-  handleChecker,
-}: {
-  id: number;
-  value: boolean;
-  handleChecker: (id: number) => void;
-}) => {
-  return (
-    <CheckBoxField>
-      <ChkBoxContainer
-        onPress={() => {
-          handleChecker(id);
-        }}
-      >
-        {value ? (
-          <IC_CHKBOX_ON width={30} height={30} />
-        ) : (
-          <IC_CHKBOX_OFF width={30} height={30} />
-        )}
-      </ChkBoxContainer>
-    </CheckBoxField>
-  );
-};
-
 const TodoCard = ({ item }: { item: ITodoInfo }) => {
   const { dispatchTodo } = useContext(TodoContext);
   const handleChecker = (JID: number) => {
@@ -92,23 +52,18 @@ const TodoCard = ({ item }: { item: ITodoInfo }) => {
   const dataToString = (IDate: Date) => {};
 
   return (
-    <CardView>
-      <ChkBox id={item.JID} value={item.SJCK} handleChecker={handleChecker} />
+    <CardContainer>
+      <CheckBox id={item.JID} value={item.SJCK} handleChecker={handleChecker} />
       <CardDescField>
         <H3>{item.JName}</H3>
         <Text>{item.expireDate?.toISOString()}</Text>
       </CardDescField>
-    </CardView>
+    </CardContainer>
   );
 };
 
 const TodoListView = ({ list }: { list: Array<ITodoInfo> }) => {
   return (
-    // <FlatList
-    //   keyExtractor={(item) => item.JID.toString()}
-    //   data={list}
-    //   renderItem={({ item }) => <TodoCard key={item.JID} item={item} />}
-    // />
     <>
       {list?.map((todoItem) => (
         <TodoCard key={todoItem.JID} item={todoItem} />

@@ -9,10 +9,12 @@ import styled from 'styled-components/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { UserContext } from '~/Context/User';
-import { GoalBox, TodoBox } from '~/Components';
+import GoalBox from '~/Components/GoalBox';
+import TodoBox from '~/Components/TodoBox';
 import { FloatPlusButton } from '~/Components/Button';
 import { PopUpMenu, PopUpOption } from '~/Components/PopUpMenu';
 import { TodoContextProvider } from '~/Context/Todo';
+import { GoalContextProvider } from '~/Context/Goal';
 
 type NavigationProp = StackNavigationProp<AppNaviParamList, 'Home'>;
 interface Props {
@@ -55,7 +57,10 @@ const DetailDate = styled.Text`
   text-align: center;
   color: #000;
 `;
-const ScrollableList = styled.ScrollView``;
+const ScrollableList = styled.ScrollView`
+  flex: 1;
+  flex-direction: column;
+`;
 
 const AddButton = styled(FloatPlusButton)`
   position: absolute;
@@ -95,7 +100,9 @@ const Home = ({ navigation }: Props) => {
       </Header>
 
       <ScrollableList>
-        <GoalBox />
+        <GoalContextProvider>
+          <GoalBox />
+        </GoalContextProvider>
 
         <TodoContextProvider>
           <TodoBox />
