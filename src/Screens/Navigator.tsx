@@ -1,17 +1,11 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { UserContext } from '~/Context';
-import { Login, Home, GoalEdit } from '~/Screens';
+import { Login, Home, GoalEdit, TodoEdit } from '~/Screens';
 import { Loading } from '~/Components';
-import { IC_LEFT_ARROW } from '~/Utils/svg';
-
-const BackBtnContainer = styled.TouchableOpacity`
-  padding-left: 15px;
-`;
 
 const Stack = createStackNavigator();
 
@@ -23,16 +17,14 @@ const LoginNavigator = () => {
   );
 };
 
-const AppNavigator = () => {
+const AppNavigator = ({}) => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{}}>
       <Stack.Screen
         name="ThreeHome"
         component={Home}
         options={{
           headerShown: false,
-          headerTitle: '',
-          headerBackTitle: '',
         }}
       />
       <Stack.Screen
@@ -40,13 +32,13 @@ const AppNavigator = () => {
         component={GoalEdit}
         options={{
           title: '목표 설정',
-          headerLeft: () => {
-            return (
-              <BackBtnContainer>
-                <IC_LEFT_ARROW />
-              </BackBtnContainer>
-            );
-          },
+        }}
+      />
+      <Stack.Screen
+        name="writeTodo"
+        component={TodoEdit}
+        options={{
+          title: '작업추가',
         }}
       />
     </Stack.Navigator>

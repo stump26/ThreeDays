@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Styled from 'styled-components/native';
 
+import { BranchSelector } from '~/Components';
 import { Button } from '~/Components/Button';
 import { IC_SM_CHKBOX_OFF, IC_SM_CHKBOX_ON } from '~/Utils/svg';
 
@@ -19,7 +20,7 @@ const Container = Styled.View`
 const OKButton = Styled(Button)`
   width: 97%;
   background:#00DF9B;
-  margin:0 5px;
+  margin:5px 5px;
   margin-bottom:auto;
   font-weight: bold;
   font-size: 28px;
@@ -27,6 +28,23 @@ const OKButton = Styled(Button)`
   border:none;
 `;
 const BtnLabel = Styled.Text``;
+const CustomBranchSelector = Styled(BranchSelector)`
+  width:80%;
+`;
+const BranchRelator = Styled.View`
+  width:95%;
+  margin-bottom:25px;
+  flex-direction:row;
+  align-items:center;
+`;
+
+const ForkCheckerContainer = Styled.View`
+  flex-basis:22%;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-around;
+`;
+
 const ForkChkLabel = Styled.Text`
   margin:auto 0;
   color: #979797;
@@ -50,28 +68,6 @@ const InputField = Styled.TextInput.attrs(() => ({
   border-bottom-color:#000;
   font-size: 24px;
   line-height: 28px;
-`;
-
-const BranchRelator = Styled.View`
-  width:95%;
-  margin-bottom:25px;
-  flex-direction:row;
-  align-items:center;
-`;
-
-const SelectorContainer = Styled.View`
-  flex-basis:75%;
-  border-bottom-width:1px;
-  border-bottom-color:#000;
-`;
-const ForkCheckerContainer = Styled.View`
-  flex-basis:22%;
-  flex-direction:row;
-  align-items:center;
-  justify-content:space-around;
-`;
-
-const BrenchSelector = Styled.Picker`
 `;
 
 const GoalNameField = Styled(InputField)`
@@ -130,11 +126,7 @@ const GoalEdit: React.SFC = () => {
           value={goalName}
         />
         <BranchRelator>
-          <SelectorContainer>
-            <BrenchSelector>
-              <BrenchSelector.Item label="Test Branch" value="Test Branch" />
-            </BrenchSelector>
-          </SelectorContainer>
+          <CustomBranchSelector onValueChange={(value) => console.log(value)} />
           <ForkCheckerContainer>
             <Checker
               value={forkChecker}
