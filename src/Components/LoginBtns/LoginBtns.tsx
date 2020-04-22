@@ -1,8 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components/native';
-import { Text, TouchableOpacity, BackHandler, ToastAndroid } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  BackHandler,
+  ToastAndroid,
+} from 'react-native';
 
-import {Button} from '~/Components/Button';
+import { Button } from '~/Components/Button';
 import { UserContext } from '~/Context/User';
 
 type PageTypes = 'login' | 'signup';
@@ -149,19 +154,6 @@ const LoginBtns = ({ curPage, handlePage }: Props) => {
 
   let timerID = 0;
   const backAction = () => {
-    if (curPage === 'login') {
-      if (backTimer === false && timerID === 0) {
-        ToastAndroid.show('한번 더 누르시면 종료됩니다.', ToastAndroid.SHORT);
-        setBackTimer(true);
-        timerID = setTimeout(() => {
-          setBackTimer(false);
-          timerID = 0;
-        }, 300);
-      } else {
-        clearTimeout(timerID);
-        BackHandler.exitApp(); // 앱 종료
-      }
-    }
     if (curPage === 'signup') {
       handlePage('login');
     }
@@ -169,7 +161,11 @@ const LoginBtns = ({ curPage, handlePage }: Props) => {
   };
   return (
     <Cotainer>
-      {curPage === 'login' ? <SignInBtnGroup handlePage={handlePage} /> : <SignUpBtnGroup />}
+      {curPage === 'login' ? (
+        <SignInBtnGroup handlePage={handlePage} />
+      ) : (
+        <SignUpBtnGroup />
+      )}
     </Cotainer>
   );
 };

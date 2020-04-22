@@ -4,6 +4,8 @@ import {
   Dimensions,
   ScrollView,
   View,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
 import styled from 'styled-components/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -134,9 +136,9 @@ const Home = ({ navigation }: Props) => {
         </PopUpMenu>
       )}
 
-      {/* <TouchableOpacity onPress={logout}>
+      <TouchableOpacity onPress={logout}>
         <Text>logout</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </Container>
   );
 };
