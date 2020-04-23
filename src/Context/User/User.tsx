@@ -1,22 +1,31 @@
-import React, { createContext, useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import React, { createContext, useEffect, useState } from 'react';
+
+import { AsyncStorage } from 'react-native';
 
 interface Props {
-  children: JSX.Element | Array<JSX.Element>;
+  children?: React.ReactElement;
 }
 
 const defaultContext: IUserContext = {
   isLoading: false,
   userInfo: undefined,
-  signInMethod: (action: LoginActions) => {},
-  signUpMethod: (action: LoginActions) => {},
-  getUserInfo: () => {},
-  logout: () => {},
+  signInMethod: (action: LoginActions) => {
+    // do nothing.
+  },
+  signUpMethod: (action: LoginActions) => {
+    // do nothing.
+  },
+  getUserInfo: () => {
+    // do nothing.
+  },
+  logout: () => {
+    // do nothing.
+  },
 };
 
 const UserContext = createContext(defaultContext);
 
-const UserContextProvider = ({ children }: Props) => {
+const UserContextProvider = ({ children }: Props): React.ReactElement => {
   const [userInfo, setUserInfo] = useState<IUserInfo | undefined>(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -38,7 +47,7 @@ const UserContextProvider = ({ children }: Props) => {
     console.log('UserContextProvider -> userInfo', userInfo);
   };
 
-  const signInMethod = (action: LoginActions) => {
+  const signInMethod = (action: LoginActions): void => {
     switch (action.type) {
       case 'LOCAL':
         login('test@test.com', 'qwer1234');
@@ -53,7 +62,7 @@ const UserContextProvider = ({ children }: Props) => {
         throw new Error();
     }
   };
-  const signUpMethod = (action: LoginActions) => {
+  const signUpMethod = (action: LoginActions): void => {
     switch (action.type) {
       case 'LOCAL':
         login('test@test.com', 'qwer1234');

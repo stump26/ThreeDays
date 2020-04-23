@@ -1,44 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { StatusBar, ToastAndroid, BackHandler } from 'react-native';
-import Navigator from '~/Screens/Navigator';
-import { UserContextProvider } from '~/Context/User';
+import { AppLoading, Asset } from 'expo';
+import { Image, StatusBar } from 'react-native';
+import React, { useState } from 'react';
 
-const App = () => {
-  const [backTimer, setBackTimer] = useState(false);
+import RootNavigator from './components/navigation/RootStackNavigator';
+import RootProvider from './providers';
+import Svgs from './utils/svg';
 
-  useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', backAction);
-    return () => {
-      BackHandler.removeEventListener('hardwareBackPress', backAction);
-    };
-  }, []);
-
-  let timerID = 0;
-
-  const backAction = () => {
-    if (backTimer === false && timerID === 0) {
-      ToastAndroid.show('한번 더 누르시면 종료됩니다.', ToastAndroid.SHORT);
-      setBackTimer(true);
-      timerID = setTimeout(() => {
-        setBackTimer(false);
-        timerID = 0;
-      }, 300);
+function cacheImages(images: Image[]): Image[] {
+  return images.map((image: Image) => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
     } else {
-      clearTimeout(timerID);
-      BackHandler.exitApp(); // 앱 종료
+      return Asset.fromModule(image).downloadAsync();
     }
+  });
+}
 
-    return true;
-  };
-
-  return (
-    <>
-      <UserContextProvider>
-        <StatusBar barStyle="light-content" />
-        <Navigator />
-      </UserContextProvider>
-    </>
-  );
+const loadAssetsAsync = async (): Promise<void> => {
+  const imageAssets = cacheImages(Svgs);
+  await Promise.all([...imageAssets]);
 };
 
-export default App;
+function App(): React.ReactElement {
+  return <RootNavigator />;
+}
+
+function ProviderWrapper(): React.ReactElement {
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
+    return (
+      <AppLoading
+        startAsync={loadAssetsAsync}
+        onFinish={(): void => {
+          console.log('loading complete');
+          setLoading(true);
+        }}
+        // onError={console.warn}
+      />
+    );
+  }
+  return (
+    <RootProvider>
+      <>
+        <StatusBar barStyle="light-content" />
+        <App />
+      </>
+    </RootProvider>
+  );
+}
+
+export default ProviderWrapper;

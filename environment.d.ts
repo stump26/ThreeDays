@@ -1,5 +1,5 @@
 declare module '*.png' {
-  const content: any;
+  const content;
 
   export default content;
 }
@@ -11,7 +11,7 @@ declare module '*.svg' {
 }
 
 declare module '*.json' {
-  const content: any;
+  const content;
 
   export default content;
 }
