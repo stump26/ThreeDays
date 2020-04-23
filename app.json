@@ -1,8 +1,10 @@
 {
   "expo": {
-    "name": "ThreeDays",
-    "slug": "ThreeDays",
-    "platforms": ["ios", "android"],
+    "name": "three-days",
+    "slug": "three-days-expo",
+    "privacy": "public",
+    "sdkVersion": "37.0.0",
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,17 +18,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.stumpark.threedays"
-    },
-    "android": {
-      "package": "threedays"
+      "supportsTablet": true
     },
     "packagerOpts": {
       "config": "./metro.config.js",
       "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
     },
-    "entryPoint": "~/AppEntry.js",
-    "githubUrl": "https://github.com/stump26/ThreeDays"
+    "description": "Expo starter from test-dooboo-cli.",
+    "entryPoint": "./AppEntry.js"
   }
 }

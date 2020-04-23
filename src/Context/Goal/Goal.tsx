@@ -1,4 +1,4 @@
-import React, { createContext, useState, useReducer, useEffect } from 'react';
+import React, { createContext, useEffect, useReducer, useState } from 'react';
 
 interface Props {
   children: JSX.Element | Array<JSX.Element>;
@@ -25,7 +25,7 @@ const GoalContext = createContext(defaultContext);
 const goalReducer = (
   state: Array<IGoalInfo> | undefined,
   action: GoalActionTypes,
-) => {
+): IGoalInfo[] => {
   switch (action.type) {
     case 'SET_LIST':
       if (state !== undefined) {
@@ -43,11 +43,11 @@ const goalReducer = (
   }
 };
 
-const GoalContextProvider = ({ children }: Props) => {
+const GoalContextProvider = ({ children }: Props): JSX.Element => {
   const [goalLists, dispatchGoal] = useReducer(goalReducer, []);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const initGoalInfo = () => {
+  const initGoalInfo = (): void => {
     dispatchGoal({ type: 'SET_LIST', value: DEV_GOAL_DUMI });
   };
 

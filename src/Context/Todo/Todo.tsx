@@ -1,4 +1,4 @@
-import React, { createContext, useState, useReducer, useEffect } from 'react';
+import React, { createContext, useEffect, useReducer, useState } from 'react';
 
 interface Props {
   children: JSX.Element | Array<JSX.Element>;
@@ -53,7 +53,7 @@ const TodoContext = createContext(defaultContext);
 const todoReducer = (
   state: Array<ITodoInfo> | undefined,
   action: TodoActionTypes,
-) => {
+): Array<ITodoInfo> => {
   switch (action.type) {
     case 'TOGGLE_CHK':
       if (
@@ -83,11 +83,11 @@ const todoReducer = (
   }
 };
 
-const TodoContextProvider = ({ children }: Props) => {
+const TodoContextProvider = ({ children }: Props): React.ReactElement => {
   const [todoLists, dispatchTodo] = useReducer(todoReducer, []);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getTodoInfo = () => {
+  const getTodoInfo = (): void => {
     dispatchTodo({ type: 'SET_LIST', value: DEV_TODO_DUMI });
   };
 
