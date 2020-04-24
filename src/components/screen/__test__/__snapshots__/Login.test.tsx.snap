@@ -153,6 +153,7 @@ exports[`[Login] rendering test should render without crashing 1`] = `
                     },
                   ]
                 }
+                testID="btn-local-sign-in"
               >
                 <Text
                   style={
@@ -195,6 +196,7 @@ exports[`[Login] rendering test should render without crashing 1`] = `
                     },
                   ]
                 }
+                testID="btn-google-sign-in"
               >
                 <Text>
                   <Text
@@ -284,6 +286,7 @@ exports[`[Login] rendering test should render without crashing 1`] = `
                     },
                   ]
                 }
+                testID="btn-facebook-sign-in"
               >
                 <Text
                   style={
@@ -326,6 +329,7 @@ exports[`[Login] rendering test should render without crashing 1`] = `
                     },
                   ]
                 }
+                testID="btn-kakao-sign-in"
               >
                 <Text
                   style={
@@ -339,6 +343,7 @@ exports[`[Login] rendering test should render without crashing 1`] = `
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={0.2}
+                testID="btn-sign-up"
               >
                 <Text
                   style={

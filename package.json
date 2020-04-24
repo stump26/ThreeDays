@@ -10,7 +10,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node node_modules/jest/bin/jest.js",
+    "test": "node node_modules/jest/bin/jest.js --coverage",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
   },
   "private": true,

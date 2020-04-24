@@ -31,7 +31,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svgMock.js',
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'babel-jest',
-    '^~/(.*)$': '<rootDir>/src/$1',
   },
   setupFiles: [
     ...expoPreset.setupFiles,
