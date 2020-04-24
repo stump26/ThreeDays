@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#333333",
+        "borderRadius": 3,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "height": 40,
+        "justifyContent": "center",
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Text>
+    test
+  </Text>
+</TouchableOpacity>
+`;

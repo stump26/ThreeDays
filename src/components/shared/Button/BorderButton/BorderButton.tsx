@@ -12,16 +12,13 @@ const AddSubTaskContainer = Styled.View`
   height:30px;
   align-items:center;
   justify-content:center;
-  border-width:2;
+  border-width:2px;
   border-color:#979797;
   border-style:dashed;
-  border-radius:5;
+  border-radius:5px;
 `;
 const AddSubTaskBtn = Styled.TouchableOpacity`
   
-`;
-const BtnLabel = Styled.Text`
-  text-align: center;
 `;
 
 const BorderButton: React.SFC<Props> = ({ onPress, children }) => {

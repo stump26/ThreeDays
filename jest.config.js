@@ -16,6 +16,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png'],
   globals: {
     'ts-jest': {
+      babelConfig: true,
       tsConfig: {
         jsx: 'react',
       },
@@ -30,6 +31,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/svgMock.js',
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'babel-jest',
+    '^~/(.*)$': '<rootDir>/src/$1',
   },
   setupFiles: [
     ...expoPreset.setupFiles,
