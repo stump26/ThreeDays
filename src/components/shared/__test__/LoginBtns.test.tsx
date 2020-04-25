@@ -3,9 +3,9 @@ import { RenderResult, fireEvent, render } from '@testing-library/react-native';
 import {
   createTestElement,
   createTestProps,
-} from '../../../../utils/test/testUtils';
+} from '../../../utils/test/testUtils';
 
-import LoginBtns from '../../LoginBtns';
+import LoginBtns from '../LoginBtns';
 
 let props: any;
 let component: ReactElement;
@@ -24,6 +24,7 @@ describe('[LoginBtns:login] rendering test', () => {
     expect(testingLib.baseElement).toMatchSnapshot();
   });
 });
+
 describe('[LoginBtns:signup] rendering test', () => {
   beforeEach(() => {
     props = createTestProps({

@@ -5,16 +5,16 @@ import {
   createTestProps,
 } from '../../../utils/test/testUtils';
 
-import Login from '../Login';
+import GoalEdit from '../GoalEdit';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
 
-describe('[Login] screen rendering test', () => {
+describe('[GoalEdit] screen rendering test', () => {
   beforeEach(() => {
     props = createTestProps();
-    component = createTestElement(<Login {...props} />);
+    component = createTestElement(<GoalEdit {...props} />);
   });
 
   it('should render without crashing', () => {

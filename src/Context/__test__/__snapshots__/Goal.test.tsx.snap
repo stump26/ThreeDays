@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[GoalContextProvider] render test [:default] component and snapshot matches 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View>
+        <Text>
+          GName: 
+          자바스크립트 공부하기
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

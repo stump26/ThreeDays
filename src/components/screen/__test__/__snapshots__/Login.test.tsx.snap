@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Login] rendering test should render without crashing 1`] = `
+exports[`[Login] screen rendering test should render without crashing 1`] = `
 <View
   pointerEvents="box-none"
   style={
