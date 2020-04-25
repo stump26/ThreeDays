@@ -1,0 +1,764 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Home] screen rendering test should render without crashing 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#f7f7f7",
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "overflow": "scroll",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "marginBottom": 5,
+                "marginLeft": 20,
+                "marginRight": 20,
+                "marginTop": 5,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#00df9b",
+                  "fontSize": 48,
+                  "fontWeight": "bold",
+                  "lineHeight": 56,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Today
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "lineHeight": 14,
+                  "marginBottom": 20,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            2020년 4월 3일 금요일
+          </Text>
+        </View>
+      </View>
+      <ScrollView
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "marginBottom": 0,
+                "marginLeft": 28,
+                "marginRight": 28,
+                "marginTop": 0,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            목표
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "column",
+                  "height": 83,
+                  "justifyContent": "space-between",
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "flexBasis": 0,
+                      "flexDirection": "row",
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                      "paddingBottom": 3,
+                      "paddingLeft": 5,
+                      "paddingRight": 5,
+                      "paddingTop": 3,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "fontFamily": "Roboto",
+                        "fontSize": 11,
+                        "fontStyle": "normal",
+                        "fontWeight": "bold",
+                        "lineHeight": 11,
+                        "marginLeft": "auto",
+                        "paddingRight": 4,
+                      },
+                    ]
+                  }
+                >
+                  Javascript
+                </Text>
+                <View
+                  color="#487BFF"
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#487BFF",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "position": "relative",
+                    "top": -5,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                자바스크립트 공부하기
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "minHeight": 20,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#08d194",
+                      "borderColor": "#e4e4e4",
+                      "borderLeftWidth": 0.3,
+                      "borderRightWidth": 0.3,
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#08d194",
+                      "borderColor": "#e4e4e4",
+                      "borderLeftWidth": 0.3,
+                      "borderRightWidth": 0.3,
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#e4e4e4",
+                      "flexBasis": 0,
+                      "flexGrow": 1,
+                      "flexShrink": 1,
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginBottom": 40,
+                "marginLeft": 28,
+                "marginRight": 28,
+                "marginTop": 10,
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#000000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Todo
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 83,
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexBasis": "20%",
+                  },
+                ]
+              }
+            >
+              <TouchableWithoutFeedback
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 8,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  height={30}
+                  width={30}
+                />
+              </TouchableWithoutFeedback>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                컴퓨터 구조 과제
+              </Text>
+              <Text>
+                2020-04-17T05:30:00.000Z
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 83,
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexBasis": "20%",
+                  },
+                ]
+              }
+            >
+              <TouchableWithoutFeedback
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 8,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  height={30}
+                  width={30}
+                />
+              </TouchableWithoutFeedback>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                무팔기
+              </Text>
+              <Text>
+                2020-04-16T15:23:00.000Z
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 83,
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexBasis": "20%",
+                  },
+                ]
+              }
+            >
+              <TouchableWithoutFeedback
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 8,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  height={30}
+                  width={30}
+                />
+              </TouchableWithoutFeedback>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                무팔기2
+              </Text>
+              <Text>
+                2020-04-16T15:23:00.000Z
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 83,
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexBasis": "20%",
+                  },
+                ]
+              }
+            >
+              <TouchableWithoutFeedback
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 8,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  height={30}
+                  width={30}
+                />
+              </TouchableWithoutFeedback>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                무팔기3
+              </Text>
+              <Text>
+                2020-04-16T15:23:00.000Z
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 3,
+                  "display": "flex",
+                  "elevation": 5,
+                  "flexDirection": "row",
+                  "height": 83,
+                  "marginBottom": 6,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 6,
+                  "shadowColor": "rgba(0,0,0,0.25)",
+                  "shadowOffset": Object {
+                    "height": 4,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 4,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "flexBasis": "20%",
+                  },
+                ]
+              }
+            >
+              <TouchableWithoutFeedback
+                style={
+                  Array [
+                    Object {
+                      "borderRadius": 8,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  height={30}
+                  width={30}
+                />
+              </TouchableWithoutFeedback>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000000",
+                      "fontSize": 16,
+                      "fontWeight": "bold",
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                무팔기4
+              </Text>
+              <Text>
+                2020-04-16T15:23:00.000Z
+              </Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+      <TouchableOpacity
+        activeOpacity={0.2}
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "display": "flex",
+              "elevation": 6,
+              "justifyContent": "center",
+              "position": "absolute",
+              "shadowColor": "rgba(0,0,0,0.25)",
+              "shadowOffset": Object {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 1,
+              "shadowRadius": 4,
+            },
+            Object {
+              "alignSelf": "flex-end",
+              "bottom": 0,
+              "height": 60,
+              "position": "absolute",
+              "right": 15,
+              "width": 60,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          height="20"
+          width="20"
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        activeOpacity={0.2}
+      >
+        <Text>
+          logout
+        </Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+</View>
+`;

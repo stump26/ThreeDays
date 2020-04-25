@@ -5,16 +5,16 @@ import {
   createTestProps,
 } from '../../../utils/test/testUtils';
 
-import Login from '../Login';
+import TodoEdit from '../TodoEdit';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderResult;
 
-describe('[Login] screen rendering test', () => {
+describe('[TodoEdit] screen rendering test', () => {
   beforeEach(() => {
     props = createTestProps();
-    component = createTestElement(<Login {...props} />);
+    component = createTestElement(<TodoEdit {...props} />);
   });
 
   it('should render without crashing', () => {
