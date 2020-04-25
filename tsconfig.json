@@ -29,12 +29,15 @@
       }
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/utils/hashid.tx"],
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "skipBabel": true
+        // "tsConfigFile": "my-tsconfig.json"
+      }
+    }
+  },
   "files": ["environment.d.ts"]
 }

@@ -8,15 +8,13 @@ import {
   Text,
 } from 'react-native';
 import styled from 'styled-components/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 
+import { StackNavigationProp } from '@react-navigation/stack';
 import { UserContext } from '~/Context/User';
 import GoalBox from '~/Components/GoalBox';
 import TodoBox from '~/Components/TodoBox';
 import { FloatPlusButton } from '~/Components/Button';
 import { PopUpMenu, PopUpOption } from '~/Components/PopUpMenu';
-import { TodoContextProvider } from '~/Context/Todo';
-import { GoalContextProvider } from '~/Context/Goal';
 
 type NavigationProp = StackNavigationProp<AppNaviParamList, 'Home'>;
 interface Props {
@@ -65,8 +63,12 @@ const ScrollableList = styled.ScrollView`
 `;
 
 const AddButton = styled(FloatPlusButton)`
+  width: 60px;
+  height: 60px;
+  right: 15px;
+  bottom: 20px;
+  border-radius: 30px;
   position: absolute;
-  bottom:0
   align-self: flex-end;
 `;
 
@@ -80,7 +82,6 @@ const Home = ({ navigation }: Props) => {
       x: Dimensions.get('window').width - event.nativeEvent.pageX,
       y: Dimensions.get('window').height - event.nativeEvent.pageY,
     });
-    console.log(popupCoord);
     setPopupVisible(true);
   };
   const hidePopupMenu = () => {
@@ -101,13 +102,8 @@ const Home = ({ navigation }: Props) => {
       </Header>
 
       <ScrollableList>
-        <GoalContextProvider>
-          <GoalBox />
-        </GoalContextProvider>
-
-        <TodoContextProvider>
-          <TodoBox />
-        </TodoContextProvider>
+        <GoalBox />
+        <TodoBox />
       </ScrollableList>
 
       <AddButton

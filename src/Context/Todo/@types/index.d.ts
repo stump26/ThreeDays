@@ -1,9 +1,11 @@
 interface ITodoInfo {
-  JID: number;
+  JID: string;
   JName: string;
+  sJIDs?: string[];
+  GID?: string;
   SJCK: boolean;
-  expireDate: Date | undefined;
-  note: string | undefined;
+  expireDate?: Date;
+  note?: string;
 }
 
 interface ITodoContext {
@@ -13,5 +15,6 @@ interface ITodoContext {
 }
 
 type TodoActionTypes =
-  | { type: 'TOGGLE_CHK'; JID: number }
-  | { type: 'SET_LIST'; value: Array<ITodoInfo> | ITodoInfo };
+  | { type: 'TOGGLE_CHK'; JID: string }
+  | { type: 'SET_LIST'; value: Array<ITodoInfo> | ITodoInfo }
+  | { type: 'PUSH_LIST'; value: ITodoInfo };
