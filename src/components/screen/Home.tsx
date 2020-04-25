@@ -4,15 +4,13 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { PopUpMenu, PopUpOption } from '~/components/shared/PopUpMenu';
+import { PopUpMenu, PopUpOption } from '~/Components/shared/PopUpMenu';
 import React, { useContext, useState } from 'react';
 
-import { FloatPlusButton } from '~/components/shared/Button';
-import GoalBox from '~/components/shared/GoalBox';
-import { GoalContextProvider } from '~/Context/Goal';
+import { FloatPlusButton } from '~/Components/shared/Button';
+import GoalBox from '~/Components/shared/GoalBox';
 import { StackNavigationProp } from '@react-navigation/stack';
-import TodoBox from '~/components/shared/TodoBox';
-import { TodoContextProvider } from '~/Context/Todo';
+import TodoBox from '~/Components/shared/TodoBox';
 import { UserContext } from '~/Context/User';
 import styled from 'styled-components/native';
 
@@ -66,9 +64,9 @@ const AddButton = styled(FloatPlusButton)`
   width: 60px;
   height: 60px;
   right: 15px;
-  bottom: 15px;
+  bottom: 20px;
+  border-radius: 30px;
   position: absolute;
-  bottom: 0;
   align-self: flex-end;
 `;
 
@@ -82,7 +80,6 @@ const Home = ({ navigation }: Props): React.ReactElement => {
       x: Dimensions.get('window').width - event.nativeEvent.pageX,
       y: Dimensions.get('window').height - event.nativeEvent.pageY,
     });
-    console.log(popupCoord);
     setPopupVisible(true);
   };
   const hidePopupMenu = (): void => {
@@ -103,13 +100,8 @@ const Home = ({ navigation }: Props): React.ReactElement => {
       </Header>
 
       <ScrollableList>
-        <GoalContextProvider>
-          <GoalBox />
-        </GoalContextProvider>
-
-        <TodoContextProvider>
-          <TodoBox />
-        </TodoContextProvider>
+        <GoalBox />
+        <TodoBox />
       </ScrollableList>
 
       <AddButton handlePopupMenu={showPopupMenu} />

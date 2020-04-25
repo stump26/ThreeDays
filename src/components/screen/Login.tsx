@@ -1,4 +1,4 @@
-import { ImgBackground, LoginBtns } from '~/components/shared';
+import { ImgBackground, LoginBtns } from '~/Components/shared';
 import React, { useState } from 'react';
 
 import { StackNavigationProp } from '@react-navigation/stack';

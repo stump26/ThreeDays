@@ -1,3 +1,4 @@
+import icCalandalExpire from '~/assets/images/Calendar_expire.svg';
 import icCheckBoxOff from '~/assets/images/Checkbox_off.svg';
 import icCheckBoxOn from '~/assets/images/Checkbox_on.svg';
 import icCheckBoxSmallOff from '~/assets/images/Checkbox_small_off.svg';
@@ -15,6 +16,7 @@ export const IC_PLUS = icPlus;
 export const POPUP_BUBBLE = svgPopUpBubble;
 export const IC_LEFT_ARROW = svgLeftArrow;
 export const IC_GRAY_THIN_PLUS = icGrayThinPlus;
+export const IC_CALANDAL_EXPIRE = icCalandalExpire;
 
 export default [
   IC_CHKBOX_OFF,
@@ -25,4 +27,5 @@ export default [
   POPUP_BUBBLE,
   IC_LEFT_ARROW,
   IC_GRAY_THIN_PLUS,
+  IC_CALANDAL_EXPIRE,
 ];

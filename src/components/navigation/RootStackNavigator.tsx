@@ -1,4 +1,4 @@
-import { GoalEdit, Home, Login, TodoEdit } from '~/components/screen';
+import { GoalEdit, Home, Login, TodoEdit } from '~/Components/screen';
 import React, { useContext } from 'react';
 
 import { Loading } from '~/Components/shared';

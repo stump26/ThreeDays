@@ -12,35 +12,35 @@ const defaultContext: ITodoContext = {
 
 const DEV_TODO_DUMI: Array<ITodoInfo> = [
   {
-    JID: 11111,
+    JID: '11111',
     JName: '컴퓨터 구조 과제',
     SJCK: false,
     expireDate: new Date('2020-04-17T14:30:00'),
     note: '문제풀기',
   },
   {
-    JID: 11121,
+    JID: '11121',
     JName: '무팔기',
     SJCK: false,
     expireDate: new Date('2020-04-17T00:23:00'),
     note: '150벨넘으면 바로팔아야겠다',
   },
   {
-    JID: 11131,
+    JID: '11131',
     JName: '무팔기2',
     SJCK: false,
     expireDate: new Date('2020-04-17T00:23:00'),
     note: '150벨넘으면 바로팔아야겠다',
   },
   {
-    JID: 11141,
+    JID: '11141',
     JName: '무팔기3',
     SJCK: false,
     expireDate: new Date('2020-04-17T00:23:00'),
     note: '150벨넘으면 바로팔아야겠다',
   },
   {
-    JID: 11151,
+    JID: '11151',
     JName: '무팔기4',
     SJCK: false,
     expireDate: new Date('2020-04-17T00:23:00'),
@@ -78,6 +78,11 @@ const todoReducer = (
         return [...action.value];
       }
       return [action.value];
+    case 'PUSH_LIST':
+      if (state !== undefined) {
+        return [...state, action.value];
+      }
+      throw new Error('fail to PUSH TodoList');
     default:
       throw new Error('Unhandled action');
   }

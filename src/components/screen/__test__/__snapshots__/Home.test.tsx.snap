@@ -737,7 +737,8 @@ exports[`[Home] screen rendering test should render without crashing 1`] = `
             },
             Object {
               "alignSelf": "flex-end",
-              "bottom": 0,
+              "borderRadius": 30,
+              "bottom": 20,
               "height": 60,
               "position": "absolute",
               "right": 15,

@@ -100,8 +100,8 @@ npm test
 ```
 > jest -u
 
- PASS  src/components/shared/__tests__/Button.test.tsx
- PASS  src/components/screen/__tests__/Intro.test.tsx
+ PASS  src/Components/shared/__tests__/Button.test.tsx
+ PASS  src/Components/screen/__tests__/Intro.test.tsx
  › 2 snapshots written.
 
 Snapshot Summary
@@ -116,7 +116,7 @@ Ran all test suites
 
 ### Writing tests with Jest
 
-We've created test examples with jest-ts in `src/components/screen/__tests__` and `src/components/shared/__tests__`. Since react is component oriented, we've designed to focus on writing test in same level of directory with component. You can simply run `npm test` to test if it succeeds and look more closer opening the source.
+We've created test examples with jest-ts in `src/Components/screen/__tests__` and `src/Components/shared/__tests__`. Since react is component oriented, we've designed to focus on writing test in same level of directory with component. You can simply run `npm test` to test if it succeeds and look more closer opening the source.
 
 ### Localization
 

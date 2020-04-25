@@ -2,7 +2,7 @@ import { AppLoading, Asset } from 'expo';
 import { Image, StatusBar } from 'react-native';
 import React, { useState } from 'react';
 
-import RootNavigator from './components/navigation/RootStackNavigator';
+import RootNavigator from './Components/navigation/RootStackNavigator';
 import RootProvider from './providers';
 import Svgs from './utils/svg';
 

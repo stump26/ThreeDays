@@ -22,7 +22,6 @@ const AddSubTaskBtn = Styled.TouchableOpacity`
 `;
 
 const BorderButton: React.SFC<Props> = ({ onPress, children }) => {
-  console.log('typeof children', typeof children);
   return (
     <AddSubTaskBtn onPress={onPress}>
       <AddSubTaskContainer>{children}</AddSubTaskContainer>

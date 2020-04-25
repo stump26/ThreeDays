@@ -1,7 +1,7 @@
 import { BackHandler, Text, TouchableOpacity } from 'react-native';
 import React, { useContext, useEffect, useState } from 'react';
 
-import { Button } from '~/components/shared/Button';
+import { Button } from '~/Components/shared/Button';
 import { UserContext } from '~/Context/User';
 import styled from 'styled-components/native';
 

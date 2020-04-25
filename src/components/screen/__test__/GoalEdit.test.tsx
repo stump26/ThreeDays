@@ -24,3 +24,17 @@ describe('[GoalEdit] screen rendering test', () => {
     expect(testingLib.baseElement).toMatchSnapshot();
   });
 });
+
+describe('[GoalEdit] screen rendering test', () => {
+  beforeEach(() => {
+    props = createTestProps();
+    component = createTestElement(<GoalEdit {...props} />);
+  });
+
+  it('should render without crashing', () => {
+    testingLib = render(component);
+    expect(testingLib.baseElement).toBeTruthy();
+    // Remove snapshot testing for now for issue https://github.com/VirgilSecurity/virgil-e3kit-js/issues/82
+    expect(testingLib.baseElement).toMatchSnapshot();
+  });
+});

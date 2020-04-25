@@ -1,12 +1,16 @@
 import { BorderButton, Button } from '~/Components/shared/Button';
-import { IC_GRAY_THIN_PLUS, IC_PLUS } from '~/utils/svg';
-import React, { useState } from 'react';
+import { IC_CALANDAL_EXPIRE, IC_GRAY_THIN_PLUS } from '~/utils/svg';
+import React, { useContext, useState } from 'react';
 
 import { BranchSelector } from '~/Components/shared';
+import DatePicker from 'react-native-datepicker';
 import Styled from 'styled-components/native';
+import Toast from 'react-native-simple-toast';
+import { TodoContext } from '~/Context/Todo';
+import { onewayID } from '~/utils/hashid';
 
 interface SubJobTypes {
-  jobId: string;
+  sJID: string;
   jobName: string;
   sjck: boolean;
 }
@@ -38,7 +42,7 @@ const EditFormBody = Styled.ScrollView.attrs(() => ({
 }))`
   flex:1;
   width: 85%;
-  padding:0;
+  padding:40px 0;
   margin:0;
 `;
 
@@ -89,34 +93,104 @@ const MemoField = Styled.TextInput.attrs(() => ({
   border-radius: 5px;
   align-items:flex-start;
 `;
+const ExpireDatePickerContainer = Styled.View`
+  width:100%;
+  flex-direction:row;
+  margin-bottom:15px;
+`;
+
+const ExpireDatePicker = Styled(DatePicker).attrs(() => {
+  function getFormatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = 1 + date.getMonth();
+    const day = date.getDate();
+
+    return `${year}-${month >= 10 ? month : '0' + month}-${
+      day >= 10 ? day : '0' + day
+    }`;
+  }
+  return {
+    minDate: getFormatDate(new Date()),
+    mode: 'datetime',
+    androidMode: 'spinner',
+    showIcon: false,
+    customStyles: {
+      dateInput: {
+        borderWidth: 0,
+      },
+      dateTouchBody: {
+        color: '#979797',
+      },
+    },
+  };
+})`
+  flex:1;
+  flex-basis:80%;
+  margin-left:10px;
+  border-bottom-width:2px;
+  border-bottom-color:#979797;
+`;
+
+const CalandalExpireICON = Styled(IC_CALANDAL_EXPIRE)`
+  width:27px;
+  height:27px;
+  top:2px;
+  margin:auto 2px;
+`;
 
 const TodoEdit: React.SFC = () => {
+  const { dispatchTodo } = useContext<ITodoContext>(TodoContext);
   const [todoName, setTodoName] = useState('');
   const [subTasks, setSubTasks] = useState<Array<SubJobTypes>>([]);
   const [todoMemo, setTodoMemo] = useState('');
+  const [expireDate, setExpireDate] = useState<Date | undefined>(undefined);
 
+  const onChangeExpireDateChange = (edate: Date): void => {
+    setExpireDate(edate);
+  };
   const handleAddTasks = (): void => {
-    const defualtTaskForm = {
-      jobId: Math.random().toString(36).substring(6),
+    const defualtTaskForm: SubJobTypes = {
+      sJID: onewayID(9),
       jobName: '',
       sjck: false,
     };
     setSubTasks([...subTasks, defualtTaskForm]);
   };
 
+  const handleEditCheckOut = (): void => {
+    if (todoName === '') {
+      Toast.show('작업 이름이 비어있습니다.');
+      return;
+      // throw new Error('task name not setted');
+    }
+    const sJIDs =
+      subTasks.length !== 0
+        ? subTasks.reduce((acc: Array<string>, cur) => [...acc, cur.sJID], [])
+        : undefined;
+
+    const newTodoItem: ITodoInfo = {
+      JID: onewayID(8),
+      JName: todoName,
+      sJIDs,
+      SJCK: false,
+      expireDate,
+      note: todoMemo,
+    };
+  };
+
   return (
     <Container>
       <EditFormBody>
         <TodoNameField
-          placeholder="목표"
-          onChangeText={(text): void => setTodoName(text)}
+          placeholder="작업 이름"
+          onChangeText={(text: string): void => setTodoName(text)}
           value={todoName}
         />
 
         <SubTaskContainer>
           {subTasks.map((subTask) => (
             <SubTaskField
-              key={subTask.jobId}
+              key={subTask.sJID}
               placeholder="하위 작업 이름"
               value={subTask.jobName}
             />
@@ -127,17 +201,26 @@ const TodoEdit: React.SFC = () => {
           </BorderButton>
         </SubTaskContainer>
 
-        <BranchSelector onValueChange={(value): void => console.log(value)} />
-        <TextField placeholder="기간 설정" />
+        <BranchSelector
+          onValueChange={(value: string): void => console.log(value)}
+        />
+        <ExpireDatePickerContainer>
+          <CalandalExpireICON />
+          <ExpireDatePicker
+            placeholder="기한 설정"
+            date={expireDate}
+            onDateChange={onChangeExpireDateChange}
+          />
+        </ExpireDatePickerContainer>
         <TextField placeholder="파일 추가" />
         <MemoField
           numberOfLines={7}
-          onChangeText={(text): void => setTodoMemo(text)}
+          onChangeText={(text: string): void => setTodoMemo(text)}
           placeholder="메모를 입력하세요"
           value={todoMemo}
         />
       </EditFormBody>
-      <OKButton>
+      <OKButton onPress={handleEditCheckOut}>
         <BtnLabel style={{ color: '#fff' }}>확인</BtnLabel>
       </OKButton>
     </Container>

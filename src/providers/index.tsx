@@ -2,7 +2,9 @@ import { ThemeProvider, ThemeType } from '@dooboo-ui/native-theme';
 import { dark, light } from '../theme';
 
 import BackActionProvider from './BackActionProvider';
+import { GoalContextProvider } from '~/Context/Goal';
 import React from 'react';
+import { TodoContextProvider } from '~/Context/Todo';
 import { UserContextProvider } from '~/Context/User';
 
 interface Props {
@@ -21,7 +23,11 @@ const RootProvider = ({
       customTheme={{ light, dark }}
     >
       <UserContextProvider>
-        <BackActionProvider>{children}</BackActionProvider>
+        <GoalContextProvider>
+          <TodoContextProvider>
+            <BackActionProvider>{children}</BackActionProvider>
+          </TodoContextProvider>
+        </GoalContextProvider>
       </UserContextProvider>
     </ThemeProvider>
   );

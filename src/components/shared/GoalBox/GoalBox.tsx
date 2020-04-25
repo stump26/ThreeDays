@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 
-import CardView from '~/components/shared/CardView';
+import CardView from '~/Components/shared/CardView';
 import { GoalContext } from '~/Context/Goal';
 import { IC_PLUS } from '~/utils/svg';
-import ProgressStatus from '~/components/shared/ProgressStatus';
+import ProgressStatus from '~/Components/shared/ProgressStatus';
 import Styled from 'styled-components/native';
 
 const GoalContainer = Styled.View`
