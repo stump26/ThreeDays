@@ -16,6 +16,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png'],
   globals: {
     'ts-jest': {
+      babelConfig: true,
       tsConfig: {
         jsx: 'react',
       },

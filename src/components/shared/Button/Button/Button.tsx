@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 interface BtnProps {
+  testID?: string;
   style?: StyleProp<ViewStyle>;
   children: JSX.Element | Array<JSX.Element>;
   onPress?: () => void;
@@ -19,9 +20,14 @@ const StyleButton = styled.TouchableOpacity`
   border-color: #333333;
 `;
 
-const Button = ({ style, children, onPress }: BtnProps): React.ReactElement => {
+const Button = ({
+  testID,
+  style,
+  children,
+  onPress,
+}: BtnProps): React.ReactElement => {
   return (
-    <StyleButton style={style} onPress={onPress}>
+    <StyleButton testID={testID} style={style} onPress={onPress}>
       {children}
     </StyleButton>
   );

@@ -1,0 +1,365 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Login] rendering test should render without crashing 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <SafeAreaView
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "height": "auto",
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityIgnoresInvertColors={true}
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "height": "auto",
+            },
+          ]
+        }
+      >
+        <Image
+          source={
+            Object {
+              "canInstrument": true,
+              "createTransformer": [Function],
+              "getCacheKey": [Function],
+              "process": [Function],
+            }
+          }
+          style={
+            Array [
+              Object {
+                "bottom": 0,
+                "left": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              Object {
+                "height": undefined,
+                "width": undefined,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "rgba(56,56,56,0.78)",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexDirection": "column",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "space-around",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "alignSelf": "flex-end",
+                    "color": "#ffffff",
+                    "fontSize": 24,
+                    "lineHeight": 28,
+                    "marginRight": 30,
+                    "textAlign": "right",
+                    "width": 270,
+                  },
+                ]
+              }
+            >
+              Hello. Welcome to ThreeDays.
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <TouchableOpacity
+                activeOpacity={0.2}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#333333",
+                      "borderRadius": 3,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": "100%",
+                    },
+                    Object {
+                      "backgroundColor": "#62e384",
+                      "borderColor": "black",
+                      "borderStyle": "solid",
+                      "borderWidth": 0,
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "lineHeight": 16,
+                      "marginBottom": 10,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 10,
+                      "textAlign": "center",
+                      "width": "62%",
+                    },
+                  ]
+                }
+                testID="btn-local-sign-in"
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#FFF",
+                    }
+                  }
+                >
+                  Email
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#333333",
+                      "borderRadius": 3,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": "100%",
+                    },
+                    Object {
+                      "backgroundColor": "#fff",
+                      "borderColor": "black",
+                      "borderStyle": "solid",
+                      "borderWidth": 0,
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "lineHeight": 16,
+                      "marginBottom": 10,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 10,
+                      "textAlign": "center",
+                      "width": "62%",
+                    },
+                  ]
+                }
+                testID="btn-google-sign-in"
+              >
+                <Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#4285F4",
+                      }
+                    }
+                  >
+                    G
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#EA4335",
+                      }
+                    }
+                  >
+                    o
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#FBBC05",
+                      }
+                    }
+                  >
+                    o
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#4285F4",
+                      }
+                    }
+                  >
+                    g
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#34A853",
+                      }
+                    }
+                  >
+                    l
+                  </Text>
+                  <Text
+                    style={
+                      Object {
+                        "color": "#EA4335",
+                      }
+                    }
+                  >
+                    e
+                  </Text>
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#333333",
+                      "borderRadius": 3,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": "100%",
+                    },
+                    Object {
+                      "backgroundColor": "#3b5998",
+                      "borderColor": "black",
+                      "borderStyle": "solid",
+                      "borderWidth": 0,
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "lineHeight": 16,
+                      "marginBottom": 10,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 10,
+                      "textAlign": "center",
+                      "width": "62%",
+                    },
+                  ]
+                }
+                testID="btn-facebook-sign-in"
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#FFF",
+                    }
+                  }
+                >
+                  facebook
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#333333",
+                      "borderRadius": 3,
+                      "borderStyle": "solid",
+                      "borderWidth": 1,
+                      "height": 40,
+                      "justifyContent": "center",
+                      "width": "100%",
+                    },
+                    Object {
+                      "backgroundColor": "#ffe812",
+                      "borderColor": "black",
+                      "borderStyle": "solid",
+                      "borderWidth": 0,
+                      "fontSize": 14,
+                      "fontWeight": "bold",
+                      "lineHeight": 16,
+                      "marginBottom": 10,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 10,
+                      "textAlign": "center",
+                      "width": "62%",
+                    },
+                  ]
+                }
+                testID="btn-kakao-sign-in"
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#000",
+                    }
+                  }
+                >
+                  Kakao
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                testID="btn-sign-up"
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ACACAC",
+                    }
+                  }
+                >
+                  회원이 아니신가요? 회원가입
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </View>
+    </SafeAreaView>
+  </View>
+</View>
+`;

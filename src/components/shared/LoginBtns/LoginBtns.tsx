@@ -48,6 +48,7 @@ const SignInBtnGroup = ({ handlePage }: Props): React.ReactElement => {
   return (
     <>
       <LocalLogin
+        testID="btn-local-sign-in"
         onPress={(): void => {
           signInMethod({ type: 'LOCAL' });
         }}
@@ -55,6 +56,7 @@ const SignInBtnGroup = ({ handlePage }: Props): React.ReactElement => {
         <Text style={{ color: '#FFF' }}>Email</Text>
       </LocalLogin>
       <GoogleLogin
+        testID="btn-google-sign-in"
         onPress={(): void => {
           signInMethod({ type: 'GOOGLE' });
         }}
@@ -69,6 +71,7 @@ const SignInBtnGroup = ({ handlePage }: Props): React.ReactElement => {
         </Text>
       </GoogleLogin>
       <FacebookLogin
+        testID="btn-facebook-sign-in"
         onPress={(): void => {
           signInMethod({ type: 'FACEBOOK' });
         }}
@@ -76,6 +79,7 @@ const SignInBtnGroup = ({ handlePage }: Props): React.ReactElement => {
         <Text style={{ color: '#FFF' }}>facebook</Text>
       </FacebookLogin>
       <KakaoLogin
+        testID="btn-kakao-sign-in"
         onPress={(): void => {
           signInMethod({ type: 'KAKAO' });
         }}
@@ -84,6 +88,7 @@ const SignInBtnGroup = ({ handlePage }: Props): React.ReactElement => {
       </KakaoLogin>
 
       <TouchableOpacity
+        testID="btn-sign-up"
         onPress={(): void => {
           handlePage('signup');
         }}
@@ -99,18 +104,21 @@ const SignUpBtnGroup = (): React.ReactElement => {
   return (
     <>
       <LocalLogin
+        testID="btn-local-sign-up"
         onPress={(): void => {
           signUpMethod({ type: 'LOCAL' });
         }}
       >
-        <Text style={{ color: '#FFF' }}>Email</Text>
+        <Text style={{ color: '#FFF' }}>Signup with Email</Text>
       </LocalLogin>
       <GoogleLogin
+        testID="btn-google-sign-up"
         onPress={(): void => {
           signUpMethod({ type: 'GOOGLE' });
         }}
       >
         <Text>
+          <Text style={{ color: '#000' }}>Signup with </Text>
           <Text style={{ color: '#4285F4' }}>G</Text>
           <Text style={{ color: '#EA4335' }}>o</Text>
           <Text style={{ color: '#FBBC05' }}>o</Text>
@@ -120,18 +128,20 @@ const SignUpBtnGroup = (): React.ReactElement => {
         </Text>
       </GoogleLogin>
       <FacebookLogin
+        testID="btn-facebook-sign-up"
         onPress={(): void => {
           signUpMethod({ type: 'FACEBOOK' });
         }}
       >
-        <Text style={{ color: '#FFF' }}>facebook</Text>
+        <Text style={{ color: '#FFF' }}>Signup with facebook</Text>
       </FacebookLogin>
       <KakaoLogin
+        testID="btn-kakao-sign-up"
         onPress={(): void => {
           signUpMethod({ type: 'KAKAO' });
         }}
       >
-        <Text style={{ color: '#000' }}>Kakao</Text>
+        <Text style={{ color: '#000' }}>Signup with Kakao</Text>
       </KakaoLogin>
     </>
   );

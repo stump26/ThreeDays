@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[BorderButton]renders correctly 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  style={
+    Array [
+      Object {},
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#979797",
+          "borderRadius": 5,
+          "borderStyle": "dashed",
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "height": 30,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <Text>
+      test
+    </Text>
+  </View>
+</TouchableOpacity>
+`;
