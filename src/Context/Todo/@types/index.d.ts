@@ -3,6 +3,7 @@ interface ITodoInfo {
   JName: string;
   sJIDs?: string[];
   GID?: string;
+  FID?: string;
   SJCK: boolean;
   expireDate?: Date;
   note?: string;

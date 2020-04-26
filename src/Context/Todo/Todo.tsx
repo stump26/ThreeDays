@@ -1,9 +1,5 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 
-interface Props {
-  children: JSX.Element | Array<JSX.Element>;
-}
-
 const defaultContext: ITodoContext = {
   isLoading: false,
   todoLists: undefined,
@@ -88,7 +84,7 @@ const todoReducer = (
   }
 };
 
-const TodoContextProvider = ({ children }: Props): React.ReactElement => {
+const TodoContextProvider = ({ children }): React.ReactElement => {
   const [todoLists, dispatchTodo] = useReducer(todoReducer, []);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 

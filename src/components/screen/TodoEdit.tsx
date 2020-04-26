@@ -1,12 +1,15 @@
 import { BorderButton, Button } from '~/Components/shared/Button';
 import { IC_CALANDAL_EXPIRE, IC_GRAY_THIN_PLUS } from '~/utils/svg';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { BranchSelector } from '~/Components/shared';
 import DatePicker from 'react-native-datepicker';
+import DocumentPicker from 'react-native-document-picker';
 import Styled from 'styled-components/native';
+import { SubJobsContext } from '~/Context/SubJobs';
 import Toast from 'react-native-simple-toast';
 import { TodoContext } from '~/Context/Todo';
+import { TouchableOpacity } from 'react-native';
 import { onewayID } from '~/utils/hashid';
 
 interface SubJobTypes {
@@ -141,31 +144,39 @@ const CalandalExpireICON = Styled(IC_CALANDAL_EXPIRE)`
 const TodoEdit: React.SFC = () => {
   const { dispatchTodo } = useContext<ITodoContext>(TodoContext);
   const [todoName, setTodoName] = useState('');
-  const [subTasks, setSubTasks] = useState<Array<SubJobTypes>>([]);
   const [todoMemo, setTodoMemo] = useState('');
   const [expireDate, setExpireDate] = useState<Date | undefined>(undefined);
+  const [attachedFile, setAttachedFile] = useState(undefined);
+  const { subJobsLists, dispatchSubJobs } = useContext<ISubJobsContext>(
+    SubJobsContext,
+  );
 
   const onChangeExpireDateChange = (edate: Date): void => {
     setExpireDate(edate);
   };
+
   const handleAddTasks = (): void => {
-    const defualtTaskForm: SubJobTypes = {
-      sJID: onewayID(9),
-      jobName: '',
-      sjck: false,
-    };
-    setSubTasks([...subTasks, defualtTaskForm]);
+    dispatchSubJobs && dispatchSubJobs({ type: 'MAKE_ITEM' });
+  };
+
+  const handleSubJobName = (jid, text): void => {
+    console.log('TodoEdit:React.SFC -> text', text);
+    dispatchSubJobs &&
+      dispatchSubJobs({ type: 'MODIFY_SUB_JOBNAME', JID: jid, TEXT: text });
   };
 
   const handleEditCheckOut = (): void => {
+    console.log(onewayID(9));
     if (todoName === '') {
       Toast.show('작업 이름이 비어있습니다.');
       return;
-      // throw new Error('task name not setted');
     }
     const sJIDs =
-      subTasks.length !== 0
-        ? subTasks.reduce((acc: Array<string>, cur) => [...acc, cur.sJID], [])
+      subJobsLists?.length !== 0
+        ? subJobsLists?.reduce(
+            (acc: Array<string>, cur) => [...acc, cur.sJID],
+            [],
+          )
         : undefined;
 
     const newTodoItem: ITodoInfo = {
@@ -176,8 +187,32 @@ const TodoEdit: React.SFC = () => {
       expireDate,
       note: todoMemo,
     };
+    console.log('TodoEdit:React.SFC -> newTodoItem', newTodoItem);
   };
 
+  // Handle FilePicker
+  const onClickFilePicker = async (): Promise<void> => {
+    // Pick a single file
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.allFiles],
+      });
+      console.log(
+        res.uri,
+        res.type, // mime type
+        res.name,
+        res.size,
+      );
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else {
+        throw err;
+      }
+    }
+  };
+
+  console.log('TodoEdit:React.SFC -> subJobsLists', subJobsLists);
   return (
     <Container>
       <EditFormBody>
@@ -188,10 +223,13 @@ const TodoEdit: React.SFC = () => {
         />
 
         <SubTaskContainer>
-          {subTasks.map((subTask) => (
+          {subJobsLists?.map((subTask) => (
             <SubTaskField
               key={subTask.sJID}
               placeholder="하위 작업 이름"
+              onChangeText={(text: string): void => {
+                handleSubJobName(subTask.sJID, text);
+              }}
               value={subTask.jobName}
             />
           ))}
@@ -212,7 +250,9 @@ const TodoEdit: React.SFC = () => {
             onDateChange={onChangeExpireDateChange}
           />
         </ExpireDatePickerContainer>
-        <TextField placeholder="파일 추가" />
+        <OKButton onPress={onClickFilePicker}>
+          <BtnLabel style={{ color: '#fff' }}>File</BtnLabel>
+        </OKButton>
         <MemoField
           numberOfLines={7}
           onChangeText={(text: string): void => setTodoMemo(text)}

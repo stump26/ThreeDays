@@ -4,6 +4,7 @@ import { dark, light } from '../theme';
 import BackActionProvider from './BackActionProvider';
 import { GoalContextProvider } from '~/Context/Goal';
 import React from 'react';
+import { SubJobsContextProvider } from '~/Context/SubJobs';
 import { TodoContextProvider } from '~/Context/Todo';
 import { UserContextProvider } from '~/Context/User';
 
@@ -25,7 +26,9 @@ const RootProvider = ({
       <UserContextProvider>
         <GoalContextProvider>
           <TodoContextProvider>
-            <BackActionProvider>{children}</BackActionProvider>
+            <SubJobsContextProvider>
+              <BackActionProvider>{children}</BackActionProvider>
+            </SubJobsContextProvider>
           </TodoContextProvider>
         </GoalContextProvider>
       </UserContextProvider>
