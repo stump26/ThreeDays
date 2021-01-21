@@ -28,7 +28,7 @@
     "expo": "^37.0.7",
     "expo-localization": "~8.1.0",
     "i18n-js": "^3.5.1",
-    "immer": "^6.0.3",
+    "immer": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
